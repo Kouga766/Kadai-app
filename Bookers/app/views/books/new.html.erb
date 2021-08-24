@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
+<head>
     <title>WebCampBackendNew</title>
     <meta name="csrf-param" content="authenticity_token" />
 <meta name="csrf-token" content="grZuqP0FN5ewzmweTgf5hqYmKy0ZMtAzRiCSvLU+W7IfD53ZAZ6e++kiXZ5DQRAgVSHj2dtf3iJdIPf+J5gyOw==" />
@@ -14,16 +12,16 @@
 
 <p>
   <strong>Title:</strong>
-
 </p>
+ <%= f.text_field :book_title %>
 
 <p>
   <strong>Body:</strong>
-
 </p>
+  <%= f.text_area :book_body %>
+  <%= f.submit '投稿' %>
 
 <a class="edit_14693" href="/books/14693/edit">Edit</a> |
 <a class="back" href="/books">Back</a>
 
   </body>
-</html>
