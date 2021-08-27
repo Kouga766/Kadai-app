@@ -10,18 +10,18 @@
 <body>
   <p id="notice">Book was successfully created.</p>
 
-
+<%= form_with model:@book, url:"/books/#{@book.id}", local:true do |f| %>
   <p>
     <strong>Title:</strong>
   </p>
   <%= f.text_field :book_title %>
-  
+
   <p>
     <strong>Body:</strong>
   </p>
   <%= f.text_area :book_body %>
-  
+
   <a class="edit_14693" href="/books/14693/edit">Edit</a> |
   <a class="back" href="/books">Back</a>
-
+<%end%>
 </body>

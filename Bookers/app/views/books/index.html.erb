@@ -17,9 +17,9 @@
 　　<tr>
       <td><%= book.title %></td>
       <td> <%= book.body %></td>
-      <td><a class="show_16735" href="/books/16735">Show</a></td>
-      <td><a class="edit_16735" href="/books/16735/edit">Edit</a></td>
-      <td><a data-confirm="Are you sure?" class="destroy_16735" rel="nofollow" data-method="delete" href="/books/16735">Destroy</a></td>
+      <td><a class="show_<%= book.id %>" href="/books/<%= book.id %>">Show</a></td>
+      <td><a class="edit_<%= book.id %>" href="/books/<%= book.id %>/edit">Edit</a></td>
+      <td><a data-confirm="Are you sure?" class="destroy_<%= book.id %>" rel="nofollow" data-method="delete" href="/books/<%= book.id %>">Destroy</a></td>
     </tr>
      <%end%>
   </tbody>

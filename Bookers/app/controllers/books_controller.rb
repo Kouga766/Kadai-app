@@ -9,6 +9,8 @@ protect_from_forgery
     book = Book.new(book_params)
     # ２. データをデータベースに保存するためのsaveメソッド実行
     book.save
+    # ３. トップ画面へリダイレクト
+    redirect_to '/books/new'
   end
 
   def index
@@ -20,6 +22,11 @@ protect_from_forgery
   end
   def edit
     @book = Book.find(params[:id])
+  end
+  def update
+    book = Book.find(params[:id])
+    book.update(book_params)
+    redirect_to book_path(book.id)
   end
 
   private
