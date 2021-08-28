@@ -9,7 +9,7 @@
   </head>
 
   <body>
-    <p id="notice">Book was successfully created.</p>
+   
 
     <p>
       <strong>Title:</strong>
@@ -21,7 +21,10 @@
       <%=@book.body %>
     </p>
 
-    <a class="edit_16908" href="/books/<%= book.id %>/edit">Edit</a> |
+
+
+
+    <a class="edit_16908" href="/books/<%= @book.id %>/edit">Edit</a> |
     <a class="back" href="/books">Back</a>
 
   </body>
