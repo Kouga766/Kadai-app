@@ -17,7 +17,7 @@
 　　<tr>
       <td><%= book.title %></td>
       <td> <%= book.body %></td>
-      <td><a class="show_<%= book.id %>" href="/books/<%= book.id %>">Show</a></td>
+      <td><a class="show_<%= book.id %>" href="/books/<%= book.id %>/false">Show</a></td>
       <td><a class="edit_<%= book.id %>" href="/books/<%= book.id %>/edit">Edit</a></td>
       <td><a data-confirm="Are you sure?" class="destroy_<%= book.id %>" rel="nofollow" data-method="delete" href="/books/<%= book.id %>">Destroy</a></td>
     </tr>
@@ -43,4 +43,7 @@
   <div class="actions">
     <input type="submit" name="commit" value="Create Book" data-disable-with="Create Book" />
   </div>
+
+  <input type="hidden" class="createdflag" type="text" name="createdflag" id="createdflag" value="true" />
+
 </form>

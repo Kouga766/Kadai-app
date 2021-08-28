@@ -10,7 +10,7 @@ protect_from_forgery
     # ２. データをデータベースに保存するためのsaveメソッド実行
     book.save
     # ３. show画面へリダイレクト
-     redirect_to show_book_url(book.id)
+    redirect_to show_book_url(book.id, "true")
   end
 
   def index
@@ -19,14 +19,16 @@ protect_from_forgery
 
   def show
     @book = Book.find(params[:id])
+    @createdflag = params[:createdflag]
   end
+
   def edit
     @book = Book.find(params[:id])
   end
   def update
     book = Book.find(params[:id])
     book.update(book_params)
-    redirect_to book_path(book.id)
+   redirect_to show_book_url(book.id, "true")
   end
 
   def destroy

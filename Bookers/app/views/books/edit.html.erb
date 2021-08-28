@@ -2,7 +2,7 @@
 
 <body>
   <h1>Editing Book</h1>
-  <%= form_with model:@book, url:"/todolists/#{@book.id}", local:true do |f| %>
+  <%= form_with model:@book, url:"/books/#{@book.id}", local:true do |f| %>
   <form class="edit_book" id="edit_book_16546" action="/books/16546" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="_method" value="patch" /><input type="hidden" name="authenticity_token" value="42B5kjpmTV8Nb1QpyXM21ytWytnIe/uBelVIb5jmkk91DXeHxTcZf3e52jwELvNItgkYuqH6mOr7QMvPHAw42g==" />
 
     <div class="field">
@@ -26,4 +26,3 @@
   <a class="back" href="/books">Back</a>
 
 </body>
-
