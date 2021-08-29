@@ -2,27 +2,31 @@
 
 <body>
   <h1>Editing Book</h1>
-  <%= form_with model:@book, url:"/books/#{@book.id}", local:true do |f| %>
-  <form class="edit_book" id="edit_book_16546" action="/books/16546" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="_method" value="patch" /><input type="hidden" name="authenticity_token" value="42B5kjpmTV8Nb1QpyXM21ytWytnIe/uBelVIb5jmkk91DXeHxTcZf3e52jwELvNItgkYuqH6mOr7QMvPHAw42g==" />
 
-    <div class="field">
-      <label for="book_title">Title</label>
+  <% if @book.errors.any? %>
+  <%= @book.errors.count %>件のエラーが発生しました
+  <% @book.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+
+  <%= form_with model:@book, url:"/books/#{@book.id}", local:true do |f| %>
+
+      <h4>Title</h4>
+
 
       <%= f.text_field :title %>
-    </div>
 
 
-    <div class="field">
-      <label for="book_body">Body</label>
 
-      <%= f.text_area :body %>
-    </div>
+    <h4>body</h4>
+  <%= f.text_area :body %>
 
 
-    <%= f.submit 'Update Book' %>
-  </form>
+    <h4><%= f.submit 'Update Book' %><h4>
+
 　<%end%>
-  <a class="show_16546" href="/books/16546">Show</a> |
+  <a class="show_<%= @book.id %>" href="/books/<%= @book.id %>/false">Show</a>
   <a class="back" href="/books">Back</a>
 
 </body>

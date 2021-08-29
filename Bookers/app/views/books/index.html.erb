@@ -27,23 +27,20 @@
 
 
 <h2>New book</h2>
-<form class="new_book" id="new_book" action="/books" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="fMuvOwAPwXTe+61bayP/OykA7HkHY/5VQPadnpbko6HijBIYWjtsnHOH0oQoN0O3i6d9fVO2foTZIcX6YYyOAg==" />
 
-  <div class="field">
-    <label for="book_title">Title</label>
-    <input class="book_title" type="text" name="book[title]" id="book_title" />
-  </div>
+<% if @book.errors.any? %>
+  <%= @book.errors.count %>件のエラーが発生しました
+  <% @book.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
 
-  <div class="field">
-    <label for="book_body">Body</label>
-    <textarea class="book_body" name="book[body]" id="book_body">
-</textarea>
-  </div>
 
-  <div class="actions">
-    <input type="submit" name="commit" value="Create Book" data-disable-with="Create Book" />
-  </div>
-
-  <input type="hidden" class="createdflag" type="text" name="createdflag" id="createdflag" value="true" />
-
-</form>
+<%= form_with model: @book, url:'/books', local:true do |f| %>
+  <h4>Title</h4>
+  <%= f.text_field :title %>
+  <h4>Body</h4>
+  <%= f.text_area :body %>
+  <h4>
+  <%= f.submit 'Create Book' %></h4>
+<% end %>

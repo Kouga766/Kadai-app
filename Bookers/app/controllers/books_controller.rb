@@ -5,16 +5,18 @@ protect_from_forgery
   end
 
   def create
-    # １. データを新規登録するためのインスタンス作成
-    book = Book.new(book_params)
-    # ２. データをデータベースに保存するためのsaveメソッド実行
-    book.save
-    # ３. show画面へリダイレクト
-    redirect_to show_book_url(book.id, "true")
+    @book = Book.new(book_params)
+    if @book.save
+    redirect_to show_book_url(@book.id, "true")
+    else
+      @books=Book.all
+      render:index
+    end
   end
 
   def index
      @books = Book.all
+     @book = Book.new
   end
 
   def show
@@ -23,6 +25,7 @@ protect_from_forgery
   end
 
   def edit
+    @books = Book.all
     @book = Book.find(params[:id])
   end
   def update
