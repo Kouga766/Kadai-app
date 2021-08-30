@@ -5,11 +5,13 @@ protect_from_forgery
   end
 
   def create
-    @book = Book.new(book_params)
-    if @book.save
-    redirect_to show_book_url(@book.id, "true")
+    book = Book.new(book_params)
+    if book.save
+      flash[:createdflag] = true
+      redirect_to book_path(book.id)
     else
       @books=Book.all
+      @book=book
       render:index
     end
   end
@@ -20,18 +22,26 @@ protect_from_forgery
   end
 
   def show
+
     @book = Book.find(params[:id])
-    @createdflag = params[:createdflag]
   end
 
   def edit
     @books = Book.all
     @book = Book.find(params[:id])
   end
+
   def update
     book = Book.find(params[:id])
-    book.update(book_params)
-   redirect_to show_book_url(book.id, "true")
+
+    if book.update(book_params)
+      flash[:createdflag] = true
+      redirect_to book_path(book.id)
+    else
+      @book=book
+      render:edit
+
+    end
   end
 
   def destroy

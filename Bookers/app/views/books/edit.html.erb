@@ -4,7 +4,7 @@
   <h1>Editing Book</h1>
 
   <% if @book.errors.any? %>
-  <%= @book.errors.count %>件のエラーが発生しました
+  <%= @book.errors.count %>errors prohibited this book from being saved:
   <% @book.errors.full_messages.each do |message| %>
     <%= message %>
   <% end %>
@@ -26,7 +26,5 @@
     <h4><%= f.submit 'Update Book' %><h4>
 
 　<%end%>
-  <a class="show_<%= @book.id %>" href="/books/<%= @book.id %>/false">Show</a>
+  <a class="show_<%= @book.id %>" href="/books/<%= @book.id %>">Show</a> |
   <a class="back" href="/books">Back</a>
-
-</body>
