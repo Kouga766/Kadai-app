@@ -15,5 +15,5 @@
 
 
 
-    <a class="edit_16908" href="/books/<%= @book.id %>/edit">Edit</a> |
-    <a class="back" href="/books">Back</a>
+    <%= link_to "edit",edit_book_path(@book.id)%>|
+    <%= link_to "Back",books_path%>

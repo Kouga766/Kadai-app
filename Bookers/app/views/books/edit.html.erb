@@ -26,5 +26,5 @@
     <h4><%= f.submit 'Update Book' %><h4>
 
 　<%end%>
-  <a class="show_<%= @book.id %>" href="/books/<%= @book.id %>">Show</a> |
-  <a class="back" href="/books">Back</a>
+  <%= link_to "show",book_path(@book.id)%>|
+  <%= link_to "Back",books_path%>
